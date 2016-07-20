@@ -38,6 +38,25 @@
 							<div class="tags">
 								<span>Tags: </span><?php the_tags( "", " ", "" ); ?>
 							</div>
+
+							<div class="nextprev_buttons">
+								<div class="col1-4">
+									<span class="post_prev"><?php previous_post_link('%link', 'Anterior', TRUE); ?></span>
+								</div>
+								<div class="col2-4">
+									&nbsp;
+								</div>
+								<div class="col1-4">
+									<span class="post_next"><?php next_post_link('%link', 'Próximo', TRUE); ?></span>
+								</div>
+								<span class="clear"></span>
+							</div>
+							<div class="facebook">
+								<div class="fb-comments" data-href="<?php the_permalink(); ?>" data-numposts="5" data-mobile="true" width="auto"></div>
+							</div>
+							<span class="clear"></span>		
+
+
 							<span class="clear"></span>		
 						</div>				
 					</article>

@@ -514,7 +514,7 @@ function html5wp_index($length) // Create 20 Word Callback for Index page Excerp
 }
 function html5wp_index_postlist($length) // Create 20 Word Callback for Index page Excerpts, call using html5wp_excerpt('html5wp_index');
 {
-    return 30;
+    return 25;
 }
 
 // Create 40 Word Callback for Custom Post Excerpts, call using html5wp_excerpt('html5wp_custom_post');
@@ -816,6 +816,21 @@ function string_limit_words($string, $word_limit){
 
       return implode(' ', $words);
 }
+
+function is_parent_category($id){
+    $child = get_category($id);
+    $parentSth = $child->parent;
+    $parent = get_category($parentSth);
+
+    if (!$parent){
+        return $id;
+    }else{
+        $parent_id = $parent->cat_ID;
+    
+        return $parent_id;
+    }
+}
+
 function get_special_excerpt($count){
     $excerpt = get_the_content();
     $excerpt = preg_replace(" (\[.*?\])",'',$excerpt);

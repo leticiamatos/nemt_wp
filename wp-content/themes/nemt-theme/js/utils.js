@@ -38,28 +38,27 @@ jQuery(function($) {
 	  	
 		beforeActivate: function( event, ui ) {
           	// $('.submenu_loading').addClass('active');
+          	$('.submenu_loading').removeClass('active');
 		},
 		beforeLoad: function( event, ui ) {
           	$('.submenu_loading').addClass('active');
 	        ui.jqXHR.fail(function() {
-	          ui.panel.html(
-	            "Ops! Um erro!" );
+			  	console.log("Ops! Um erro!" );
 	        });
       	},
 	  	load: function( event, ui ) {
           	$('.submenu_loading').removeClass('active');
 	  	}
-    });
+    });    
 
     $( "#tabs-ajax-modal, #tabs-ajax-onibus, #tabs-ajax-logistica" ).tabs({
 		show: { effect: "fade", duration: 800 },
 		hide: { effect: "fade", duration: 800 },
 		beforeLoad: function( event, ui ) {
 			ui.jqXHR.fail(function() {
-		  	ui.panel.html(
-		    "Ops! Um erro!" );
-        });
-      }
+		  		console.log("Ops! Um erro!" );
+        	});
+     	}
     });
 
 	$( ".post , .page" ).each(function() {
@@ -190,6 +189,11 @@ jQuery(function($) {
 		}, function(){
 			$(this).removeClass('active');
 	});
+
+	// Banner Area - Abrir em nova página
+	$('.banner_area a').each(function(){
+		$(this).attr("target","_blank");
+	})
 
 })
 

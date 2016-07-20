@@ -20,11 +20,12 @@
 <div class="responsive_menu_subcat_wpr">
 	<a href="javascript:void(0);" class="responsive_menu_subcat_link"></a>
 	<ul class="subcat_list">
+ 		<li class="cat_item main_cat"><a href="<?php echo  get_category_link( $cat_id ); ?>" class="link">Modal</a></li		
 		<?php 
 			foreach ($cats as $cat):
 				$subcat_slug = $cat->slug;
 				$subcat_id = $cat->cat_ID;
-						echo '<li class="cat_item cat_item_'. $cat->cat_slug .'"><a href="'. get_category_link( $subcat_id ) .'" class="link">' .$cat->cat_name . '</a></li>';			
+						echo '<li class="cat_item cat_item_'. $cat->slug .'"><a href="'. get_category_link( $subcat_id ) .'" class="link">' .$cat->cat_name . '</a></li>';			
 			endforeach;	
 		?>
 	</ul>

@@ -3,7 +3,7 @@
 	$cat_id = $cat_obj->term_id;
 
 	$args = array( 
-		'posts_per_page' => 20,
+		'posts_per_page' => 50,
 		'cat'		 => $cat_id
 	);
 	 // echo $cat_id;

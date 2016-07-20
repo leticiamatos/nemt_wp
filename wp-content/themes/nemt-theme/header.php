@@ -18,47 +18,98 @@
 		<?php wp_head(); ?>
 
 	</head>
-	<body <?php body_class(); ?>>
+	<?php 
+	if(is_home()):
+		$home_class = "home";
+	else:
+		$home_class = false;
+	endif;
+	?>
+
+	<body <?php body_class($home_class); ?>>
+
+
 		<h5 style="display:none;">
 			<?php echo bloginfo('rdf_url'); ?>
 		</h5>
-
 		<?php
 			$cat_parent = '';
 
-			if (!is_home()){
-				if ( is_category('modal') || in_category('modal') ):
-				$cat_parent = 'parent-cat-modal';
+			// Check if isn't Home Page
+			if (!is_home()){	
+				// Check if is Category or archive page
+				if (is_category() || is_archive()){
+					$this_category = get_category(get_query_var('cat'),false);			
+					$this_category_ID = $this_category->cat_ID;
+					
+				// Check if is Single
+				}elseif (is_single( )) {
+					$first_cat = get_the_category($post);
+					$this_category_ID = $first_cat[0]->cat_ID;	
+					// echo 'first cat!'.$first_cat[0]->name ;
+				}else{
+					$this_category_ID = 1;	
+				}
+				// Check if the main category is Parent Cat.
+				// echo 'ID Categoria 01: '.$this_category_ID;
+				$possible_parent_id = is_parent_category($this_category_ID);
+				if($possible_parent_id){
+					$parent_id = $possible_parent_id;
+					// echo '<br />ID Categoria 02: '.$parent_id;
+					$possible_parent_id = is_parent_category($parent_id); 
+					if($possible_parent_id){
+						$parent_id = $possible_parent_id;
+						// echo '<br />ID Categoria 03: '.$parent_id;
+						$possible_parent_id = is_parent_category($parent_id);
+						if($parent_id){
+							// echo '<br />ID Categoria 04: '.$parent_id;
+							$parent_id = $possible_parent_id;
+						}						
+					}
+				}else{
+					$parent_id = $this_category_ID;
+				}
+
+				// echo $parent_id;
+				$parent = get_category($parent_id);
+				$parent_slug = $parent->slug;
+				// echo $parent_slug;
 				
-				elseif ( is_category('onibus') || in_category('onibus') ):
-				$cat_parent = 'parent-cat-onibus';
-				
-				elseif ( is_category('logistica') || in_category('logistica') ):
-				$cat_parent = 'parent-cat-logistica';
-			 	
-			 	elseif ( is_category('posvenda') || in_category('posvenda') ): 
-				$cat_parent = 'parent-cat-posvenda';
-				
-			 	elseif ( is_category('blogs-e-colunas') || in_category('blogs-e-colunas') ): 
-				$cat_parent = 'parent-cat-blogs-e-colunas';
-			 	
-				elseif ( is_category('panorama') || in_category('panorama') ):
-				$cat_parent = 'parent-cat-panorama';
-			 	
-			 	elseif ( is_category('noticias') || in_category('noticias') ): 
-				$cat_parent = 'parent-cat-noticias';
-			 	
-			 	elseif ( is_category('revista') || in_category('revista') ): 
-				$cat_parent = 'parent-cat-revista';
-			 	
-			 	else:
-				$cat_parent = 'parent-default';
-				
-				endif; 
+				// Checking the name of the cat
+				switch ($parent_slug) {
+				    case "modal":
+				        $cat_parent = 'parent-cat-modal';
+				        break;
+				    case "onibus":
+				       	$cat_parent = 'parent-cat-onibus';
+				        break;
+				    case "logistica":
+				        $cat_parent = 'parent-cat-logistica';
+				        break;
+				    case "posvenda":
+				        $cat_parent = 'parent-cat-posvenda';
+				        break;
+				    case "blogs-e-colunas":
+				        $cat_parent = 'parent-cat-blogs-e-colunas';
+				        break;
+				    case "panorama":
+				        $cat_parent = 'parent-cat-panorama';
+				        break;
+				    case "noticias":
+				        $cat_parent = 'parent-cat-noticias';
+				        break;
+				    case "revista":
+				        $cat_parent = 'parent-cat-revista';
+				        break;
+			        default:
+						$cat_parent = 'parent-default';
+				}
+
 			}
 		?>
 
 		<section class="general <?php echo $cat_parent; ?>">
+
 
 			<div class="relative">
 				<div class="fixed">
@@ -90,11 +141,43 @@
 								<?php 
 									wp_nav_menu( $args = array('menu' => 'social') );
 								?>
+
 								<div class="revista">
-									<a href="#" target="_blank">
-										<img src="<?php echo get_template_directory_uri(); ?>/img/z_lixo/revista.jpg" />
-									</a>
+
+								<?php
+									$cat_obj = get_category_by_slug( 'revista' );
+									$cat_id = $cat_obj->term_id;
+									$args=array(
+										'cat' => $cat_id,
+										'post_type' => 'post',
+										'post_status' => 'publish',
+										'posts_per_page' => 1,
+										'caller_get_posts'=> 1
+									);
+									$my_query = null;
+									$my_query = new WP_Query($args);
+									if( $my_query->have_posts() ) {
+									  	while ($my_query->have_posts()) : $my_query->the_post(); ?>
+									   		<?php 
+											$link = get_post_meta(get_the_ID(), 'link_revista', true); 
+											if(!$link){ $link = "#"; }
+											?>
+											<figure>
+												<a href="<?php echo $link;?>" title="<?php the_title(); ?>" target="_blank">
+												<?php if ( has_post_thumbnail()) : ?>
+													<?php the_post_thumbnail();  ?>
+												<?php endif; ?>
+												</a>
+											</figure>
+								   		 <?php 
+								   		 endwhile;
+									}
+									wp_reset_query();  // Restore global post data stomped by the_post().
+								?>
+
 								</div>
+
+
 						  	</div>
 
 						  	<span class="clear"></span>
@@ -152,4 +235,5 @@
 					</figure>
 				</div>
 			</section>
+		  	<?php get_template_part('searchform', 'mobile'); ?>
 

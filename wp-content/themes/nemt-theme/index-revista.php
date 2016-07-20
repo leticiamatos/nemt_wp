@@ -3,7 +3,7 @@
 	$cat_id = $cat_obj->term_id;
 
 	$args = array( 
-		'posts_per_page' => 20,
+		'posts_per_page' => 50,
 		'cat'		 => $cat_id
 	);
 	 // echo $cat_id;
@@ -17,14 +17,17 @@
 	
 	<?php if ($posts): ?>
 	<?php foreach ( $posts as $post ) : setup_postdata( $post ); ?>	
+		<?php 
+			$link = get_post_meta(get_the_ID(), 'link_revista', true); 
+			if(!$link){ $link = "#"; }
+		?>
+
 		<li>
 			<article id="post-<?php echo get_the_ID(); ?>" <?php post_class(); ?>>
 				<figure>
-					<a href="<?php the_permalink();?>">
+					<a href="<?php echo $link;?>" target="_blank">
 					<?php if ( has_post_thumbnail()) : ?>
 						<?php the_post_thumbnail();  ?>
-					<?php else: ?>
-						<img src="<?php echo get_template_directory_uri(); ?>/img/z_lixo/revista.jpg"/>
 					<?php endif; ?>
 					</a>
 				</figure>
