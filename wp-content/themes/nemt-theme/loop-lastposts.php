@@ -1,8 +1,8 @@
 <?php 
-	$cat_obj = get_category_by_slug( 'destaque' );
+	$cat_obj = get_category_by_slug( '0_destaque' );
 	$cat_id = '-'. $cat_obj->term_id;
 	$cat_obj = get_category_by_slug( 'revista' );
-	$cat_id = '-'. $cat_obj->term_id;
+	$cat_id .= ', -'. $cat_obj->term_id;
 
 	$args = array( 
 		'posts_per_page' => 4,

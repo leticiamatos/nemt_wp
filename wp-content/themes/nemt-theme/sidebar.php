@@ -1,7 +1,7 @@
 <!-- sidebar -->
 <aside class="sidebar" role="complementary">
 	<div class="adv_wpr">
-		<?php get_template_part('advertising', '300x250' ); ?>
+		<?php get_template_part('advertising', 'area9' ); ?>
 	</div>
 	<div class="col_cntt most_popular">
 		<span class="block_border"></span>

@@ -26,7 +26,8 @@
 <div class="responsive_menu_subcat_wpr">
 	<a href="javascript:void(0);" class="responsive_menu_subcat_link"></a>
 	<ul class="subcat_list">
- 		<li class="cat_item main_cat"><a href="<?php echo  get_category_link( $cat_id ); ?>" class="link">Ônibus</a></li		<?php 
+ 		<li class="cat_item main_cat"><a href="<?php echo  get_category_link( $cat_id ); ?>" class="link">Ônibus</a></li>	
+ 		<?php 
 			foreach ($cats as $cat):
 				$subcat_slug = $cat->slug;
 				$subcat_id = $cat->cat_ID;

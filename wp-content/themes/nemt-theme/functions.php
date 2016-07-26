@@ -335,138 +335,12 @@ if (function_exists('register_sidebar'))
         'after_title' => '</h3>'
     ));
 
-    // // Banner Área 09 - Seção modal
-    // register_sidebar(array(
-    //     'name' => __('Banner Seção - Área 09 - Modal', 'html5blank'),
-    //     'description' => __('Banner arroba - 300 x 250px, barra lateral em posts da categoria Modal', 'html5blank'),
-    //     'id' => 'widget-area-9-modal',
-    //     'before_widget' => '<div id="%1$s" class="%2$s banner_area-11 banner_area-modal">',
-    //     'after_widget' => '</div>',
-    //     'before_title' => '<h3>',
-    //     'after_title' => '</h3>'
-    // ));    
-    // // Banner Área 10 - Seção modal
-    // register_sidebar(array(
-    //     'name' => __('Banner Seção - Área 10 - Modal', 'html5blank'),
-    //     'description' => __('Banner padrão - 728 x 90px, antes da seção «revistas» em posts da categoria Modal', 'html5blank'),
-    //     'id' => 'widget-area-10-modal',
-    //     'before_widget' => '<div id="%1$s" class="%2$s banner_area-12 banner_area-modal">',
-    //     'after_widget' => '</div>',
-    //     'before_title' => '<h3>',
-    //     'after_title' => '</h3>'
-    // ));    
-
-    // // Banner Área 09 - Seção onibus
-    // register_sidebar(array(
-    //     'name' => __('Banner Seção - Área 09 - onibus', 'html5blank'),
-    //     'description' => __('Banner arroba - 300 x 250px, barra lateral em posts da categoria «onibus»', 'html5blank'),
-    //     'id' => 'widget-area-9-onibus',
-    //     'before_widget' => '<div id="%1$s" class="%2$s banner_area-11 banner_area-onibus">',
-    //     'after_widget' => '</div>',
-    //     'before_title' => '<h3>',
-    //     'after_title' => '</h3>'
-    // ));    
-    // // Banner Área 10 - Seção onibus
-    // register_sidebar(array(
-    //     'name' => __('Banner Seção - Área 10 - onibus', 'html5blank'),
-    //     'description' => __('Banner padrão - 728 x 90px, antes da seção «revistas» em posts da categoria «onibus»', 'html5blank'),
-    //     'id' => 'widget-area-10-onibus',
-    //     'before_widget' => '<div id="%1$s" class="%2$s banner_area-12 banner_area-onibus">',
-    //     'after_widget' => '</div>',
-    //     'before_title' => '<h3>',
-    //     'after_title' => '</h3>'
-    // ));    
-
-    // // Banner Área 09 - Seção Logística
-    // register_sidebar(array(
-    //     'name' => __('Banner Seção - Área 09 - Logística', 'html5blank'),
-    //     'description' => __('Banner arroba - 300 x 250px, barra lateral em posts da categoria «Logística»', 'html5blank'),
-    //     'id' => 'widget-area-9-logistica',
-    //     'before_widget' => '<div id="%1$s" class="%2$s banner_area-11 banner_area-logistica">',
-    //     'after_widget' => '</div>',
-    //     'before_title' => '<h3>',
-    //     'after_title' => '</h3>'
-    // ));    
-    // // Banner Área 10 - Seção Logística
-    // register_sidebar(array(
-    //     'name' => __('Banner Seção - Área 10 - Logística', 'html5blank'),
-    //     'description' => __('Banner padrão - 728 x 90px, antes da seção «revistas» em posts da categoria «Logística»', 'html5blank'),
-    //     'id' => 'widget-area-10-logistica',
-    //     'before_widget' => '<div id="%1$s" class="%2$s banner_area-12 banner_area-logistica">',
-    //     'after_widget' => '</div>',
-    //     'before_title' => '<h3>',
-    //     'after_title' => '</h3>'
-    // ));    
-
-    // // Banner Área 09 - Seção Blogs e Colunas
-    // register_sidebar(array(
-    //     'name' => __('Banner Seção - Área 09 - Blogs e Colunas', 'html5blank'),
-    //     'description' => __('Banner arroba - 300 x 250px, barra lateral em posts da categoria «Blogs e Colunas»', 'html5blank'),
-    //     'id' => 'widget-area-9-blogs-e-colunas',
-    //     'before_widget' => '<div id="%1$s" class="%2$s banner_area-11 banner_area-blogs-e-colunas">',
-    //     'after_widget' => '</div>',
-    //     'before_title' => '<h3>',
-    //     'after_title' => '</h3>'
-    // ));    
-    // // Banner Área 10 - Seção Blogs e Colunas
-    // register_sidebar(array(
-    //     'name' => __('Banner Seção - Área 10 - Blogs e Colunas', 'html5blank'),
-    //     'description' => __('Banner padrão - 728 x 90px, antes da seção «revistas» em posts da categoria «Blogs e Colunas»', 'html5blank'),
-    //     'id' => 'widget-area-10-blogs-e-colunas',
-    //     'before_widget' => '<div id="%1$s" class="%2$s banner_area-12 banner_area-blogs-e-colunas">',
-    //     'after_widget' => '</div>',
-    //     'before_title' => '<h3>',
-    //     'after_title' => '</h3>'
-    // ));    
-
-    // // Banner Área 09 - Seção Servicos
-    // register_sidebar(array(
-    //     'name' => __('Banner Seção - Área 09 - Servicos', 'html5blank'),
-    //     'description' => __('Banner arroba - 300 x 250px, barra lateral em posts da categoria «Servicos»', 'html5blank'),
-    //     'id' => 'widget-area-9-posvenda',
-    //     'before_widget' => '<div id="%1$s" class="%2$s banner_area-11 banner_area-posvenda">',
-    //     'after_widget' => '</div>',
-    //     'before_title' => '<h3>',
-    //     'after_title' => '</h3>'
-    // ));    
-    // // Banner Área 10 - Seção Servicos
-    // register_sidebar(array(
-    //     'name' => __('Banner Seção - Área 10 - Servicos', 'html5blank'),
-    //     'description' => __('Banner padrão - 728 x 90px, antes da seção «revistas» em posts da categoria «Servicos»', 'html5blank'),
-    //     'id' => 'widget-area-10-posvenda',
-    //     'before_widget' => '<div id="%1$s" class="%2$s banner_area-12 banner_area-posvenda">',
-    //     'after_widget' => '</div>',
-    //     'before_title' => '<h3>',
-    //     'after_title' => '</h3>'
-    // ));    
-
-    // // Banner Área 09 - Noticias
-    // register_sidebar(array(
-    //     'name' => __('Banner Seção - Área 09 - Noticias', 'html5blank'),
-    //     'description' => __('Banner arroba - 300 x 250px, barra lateral em posts da categoria «Notícias»', 'html5blank'),
-    //     'id' => 'widget-area-9-noticias',
-    //     'before_widget' => '<div id="%1$s" class="%2$s banner_area-11 banner_area-noticias">',
-    //     'after_widget' => '</div>',
-    //     'before_title' => '<h3>',
-    //     'after_title' => '</h3>'
-    // ));    
-    // // Banner Área 10 - Noticias
-    // register_sidebar(array(
-    //     'name' => __('Banner Seção - Área 10 - Noticias', 'html5blank'),
-    //     'description' => __('Banner padrão - 728 x 90px, antes da seção «revistas» em posts da categoria «Notícias»', 'html5blank'),
-    //     'id' => 'widget-area-10-noticias',
-    //     'before_widget' => '<div id="%1$s" class="%2$s banner_area-12 banner_area-noticias">',
-    //     'after_widget' => '</div>',
-    //     'before_title' => '<h3>',
-    //     'after_title' => '</h3>'
-    // ));     
-    
     // Banner Área 09
     register_sidebar(array(
         'name' => __('Banner Seção - Área 09', 'html5blank'),
         'description' => __('Banner arroba - 300 x 250px, barra lateral em postagens', 'html5blank'),
-        'id' => 'widget-area-9-noticias',
-        'before_widget' => '<div id="%1$s" class="%2$s banner_area-09 banner_area-noticias">',
+        'id' => 'widget-area-9',
+        'before_widget' => '<div id="%1$s" class="%2$s banner_area-09 banner_area">',
         'after_widget' => '</div>',
         'before_title' => '<h3>',
         'after_title' => '</h3>'
@@ -475,8 +349,8 @@ if (function_exists('register_sidebar'))
     register_sidebar(array(
         'name' => __('Banner Seção - Área 10', 'html5blank'),
         'description' => __('Banner padrão - 728 x 90px, antes da seção «revistas» em postsagens', 'html5blank'),
-        'id' => 'widget-area-10-noticias',
-        'before_widget' => '<div id="%1$s" class="%2$s banner_area-10 banner_area-noticias">',
+        'id' => 'widget-area-10',
+        'before_widget' => '<div id="%1$s" class="%2$s banner_area-10 banner_area">',
         'after_widget' => '</div>',
         'before_title' => '<h3>',
         'after_title' => '</h3>'

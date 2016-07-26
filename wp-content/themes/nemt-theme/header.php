@@ -189,7 +189,6 @@
 						<div class="menu responsive wpr">
 							<a class="menu_link"></a>
 							<div class="menu responsive cntt">
-							  	<?php get_template_part('searchform'); ?>
 								<nav class="menu responsive_primary">
 									<?php 
 										wp_nav_menu( $args = array('menu' => 'primary') );

@@ -11,7 +11,9 @@ jQuery(function($) {
 	// Home Highlight Slide
 	$('.slide_wpr').bxSlider({
 		infiniteLoop: true,
-		pager: false
+		pager: false,
+		auto: true,
+		pause: 5000
 	});	
 
 	// Home Pós-venda Carousel
